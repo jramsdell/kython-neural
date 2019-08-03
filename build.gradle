@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.41'
+}
+
+group 'kython-neural'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+apply plugin:'application'
+//mainClassName = "experiment.ScratchpadKt"
+mainClassName = "MainKt"
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+    compile "org.apache.lucene:lucene-core:8.2.0"
+    compile "org.apache.lucene:lucene-queries:8.2.0"
+    compile "org.apache.lucene:lucene-analyzers-common:8.2.0"
+    compile "org.apache.lucene:lucene-queryparser:8.2.0"
+    compile "com.github.TREMA-UNH:trec-car-tools-java:15"
+
+    implementation 'com.beust:klaxon:5.0.1'
+    compile "net.sourceforge.argparse4j:argparse4j:0.8.1"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
